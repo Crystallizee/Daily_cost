@@ -16,14 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('layout.main');
-// });
-// Route::get('/', function () {
-//     return view('thisMonth');
-// });
+// Route to store new expense
+Route::get('/expense/create', [ExpenseController::class, 'create'])->middleware('auth');
+Route::post('/expense/store', [ExpenseController::class, 'store'])->middleware('auth');
+// Route to delete expense
+Route::delete('/expense/{id}', 'ExpenseController@destroy')->middleware('auth');
 Route::get('/all',[ExpenseController::class,'index'])->middleware('auth');
-Route::get('/ThisMonth',[ExpenseController::class,'showCurrentMonth'])->middleware('auth');
+Route::get('/thisMonth',[ExpenseController::class,'showCurrentMonth'])->middleware('auth');
 Route::get('/thisYear',[ExpenseController::class,'showCurrentYear'])->middleware('auth');
 Route::get('/login',[LoginController::class,'index'])->middleware('guest');
 Route::post('/login',[LoginController::class,'authenticate']);

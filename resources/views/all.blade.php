@@ -1,6 +1,12 @@
 @extends('layout.main')
 @section('content')
 <div class="container">
+    {{-- button for create new expense --}}
+    <div class="row">
+        <div class="col">
+            <a href="{{ url('/expense/create') }}" class="btn btn-primary">Tambah</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <table class="table table-striped">
@@ -24,6 +30,7 @@
                 </tbody>
                 @endforeach
             </table>
+            <div class="col-md-4 offset-md-8">Total ={{ $total_makanan }}</div>
         </div>
         <div class="col">
             <table class="table table-striped">
@@ -47,6 +54,7 @@
                 </tbody>
                 @endforeach
             </table>
+            <div class="col-md-4 offset-md-8">Total ={{ $total_transportasi }}</div>
         </div>
     </div>
     <div class="row">
@@ -72,6 +80,7 @@
                 </tbody>
                 @endforeach
             </table>
+            <div class="col-md-4 offset-md-8">Total ={{ $total_internet }}</div>
         </div>
         <div class="col">
             <table class="table table-striped">
@@ -95,7 +104,9 @@
                 </tbody>
                 @endforeach
             </table>
+            <div class="col-md-4 offset-md-8">Total ={{ $total_hiburan }}</div>
         </div>
     </div>
 </div> 
+
 @endsection
